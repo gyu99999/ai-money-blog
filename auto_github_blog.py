@@ -121,6 +121,13 @@ def update_index_page(docs_dir, post_filename, post_title, date_str):
     # 새 링크를 맨 위에 추가
     combined_links = new_link_html + existing_links
     
+    # [제한 규칙] 최신 글 100개까지만 유지
+    link_list = [link for link in combined_links.split("</li>") if link.strip()]
+    if len(link_list) > 100:
+        link_list = link_list[:100]
+    combined_links = "</li>".join(link_list) + "</li>"
+
+    
     # 템플릿에 합쳐서 저장
     final_index = INDEX_TEMPLATE.format(links=combined_links)
     with open(index_path, "w", encoding="utf-8") as f:
