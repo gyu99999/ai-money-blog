@@ -30,6 +30,7 @@ if __name__ == "__main__":
     
     # 깃허브 액션 환경에서는 github_blog/docs 안에 생성되므로, 진짜 docs/ 폴더로 복사/이동
     if os.path.exists("github_blog/docs"):
+        os.makedirs("docs/posts", exist_ok=True)
         # Copy posts
         for f in os.listdir("github_blog/docs/posts"):
             if f.endswith(".html"):
