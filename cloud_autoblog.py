@@ -37,6 +37,8 @@ if __name__ == "__main__":
                 shutil.copy(os.path.join("github_blog/docs/posts", f), os.path.join("docs/posts", f))
         # Copy index
         shutil.copy("github_blog/docs/index.html", "docs/index.html")
+        if os.path.exists("github_blog/docs/sitemap.xml"):
+            shutil.copy("github_blog/docs/sitemap.xml", "docs/sitemap.xml")
         print("Moved files to root docs/ folder")
 
     shutil.rmtree("github_blog")
