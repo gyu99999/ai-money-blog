@@ -37,3 +37,6 @@ if __name__ == "__main__":
         # Copy index
         shutil.copy("github_blog/docs/index.html", "docs/index.html")
         print("Moved files to root docs/ folder")
+
+    shutil.rmtree("github_blog")
+    print("Cleaned up temporary github_blog folder.")
