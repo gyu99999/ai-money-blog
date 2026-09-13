@@ -156,6 +156,29 @@ def generate_thumbnail(topic, safe_title, docs_dir):
         print(f"[ERROR] 이미지 생성 실패: {e}")
         return ""
 
+
+def update_sitemap(docs_dir):
+    sitemap_path = os.path.join(docs_dir, "sitemap.xml")
+    posts_dir = os.path.join(docs_dir, "posts")
+    base_url = "https://gyu99999.github.io/ai-money-blog/posts/"
+    
+    urls = []
+    if os.path.exists(posts_dir):
+        for f in os.listdir(posts_dir):
+            if f.endswith(".html"):
+                from urllib.parse import quote
+                safe_url = base_url + quote(f)
+                urls.append(f"    <url><loc>{safe_url}</loc></url>\n")
+                
+    sitemap_content = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+    sitemap_content += "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n"
+    sitemap_content += "".join(urls)
+    sitemap_content += "</urlset>"
+    
+    with open(sitemap_path, "w", encoding="utf-8") as f:
+        f.write(sitemap_content)
+    print(f"[SUCCESS] sitemap.xml ?성 ?료")
+
 def build_static_blog(topic, affiliate_link):
     # 폴더 구조 생성 (GitHub Pages 호스팅을 위해 docs/ 폴더 사용)
     base_dir = "github_blog"
@@ -198,6 +221,7 @@ def build_static_blog(topic, affiliate_link):
     
     # 5. 메인 페이지(index.html) 업데이트
     update_index_page(docs_dir, post_filename, title, date_str)
+    update_sitemap(docs_dir)
     
     print("\n[DONE] 모든 작업이 완료되었습니다!")
     print(f"[INFO] 브라우저에서 '{os.path.abspath(docs_dir)}/index.html'을 열어서 블로그를 확인하세요.")
