@@ -21,7 +21,12 @@ def get_trending_topic():
 if __name__ == "__main__":
     topic = get_trending_topic()
     print(f"Topic: {topic}")
-    subprocess.run(["python", "auto_github_blog.py", "--topic", topic, "--link", AFFILIATE_LINK])
+    
+    import shutil
+    os.makedirs("github_blog/docs", exist_ok=True)
+    if os.path.exists("docs/index.html"):
+        shutil.copy("docs/index.html", "github_blog/docs/index.html")
+    subprocess.run(["python", "auto_github_blog.py" , "--topic", topic, "--link", AFFILIATE_LINK])
     
     # 깃허브 액션 환경에서는 github_blog/docs 안에 생성되므로, 진짜 docs/ 폴더로 복사/이동
     if os.path.exists("github_blog/docs"):
