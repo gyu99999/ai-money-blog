@@ -1,5 +1,6 @@
-﻿import os
+import os
 import subprocess
+import shutil
 from google import genai
 
 AFFILIATE_LINK = "https://partnerstack.com/"
@@ -21,4 +22,13 @@ if __name__ == "__main__":
     topic = get_trending_topic()
     print(f"Topic: {topic}")
     subprocess.run(["python", "auto_github_blog.py", "--topic", topic, "--link", AFFILIATE_LINK])
-
+    
+    # 깃허브 액션 환경에서는 github_blog/docs 안에 생성되므로, 진짜 docs/ 폴더로 복사/이동
+    if os.path.exists("github_blog/docs"):
+        # Copy posts
+        for f in os.listdir("github_blog/docs/posts"):
+            if f.endswith(".html"):
+                shutil.copy(os.path.join("github_blog/docs/posts", f), os.path.join("docs/posts", f))
+        # Copy index
+        shutil.copy("github_blog/docs/index.html", "docs/index.html")
+        print("Moved files to root docs/ folder")
