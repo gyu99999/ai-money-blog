@@ -42,4 +42,9 @@ if __name__ == "__main__":
         print("Moved files to root docs/ folder")
 
     shutil.rmtree("github_blog")
+    # sitemap.xml 전체 재생성 (루트 docs 기준)
+    print("Regenerating sitemap for all posts...")
+    from auto_github_blog import update_sitemap
+    update_sitemap("docs")
+
     print("Cleaned up temporary github_blog folder.")
