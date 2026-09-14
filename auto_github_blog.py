@@ -17,7 +17,7 @@ def generate_seo_article(topic, affiliate_link):
         print("[ERROR] GEMINI_API_KEY is not set.")
         return None
 
-    prompt = f\"\"\"
+    prompt = f"""
 You are an elite affiliate marketing blogger who specializes in High-Intent, transactional SEO content. 
 Your goal is to write a highly persuasive blog post about "{topic}" that targets readers who are in the decision-making phase and ready to buy.
 
@@ -28,7 +28,7 @@ CRITICAL RULES:
 4. Output ONLY valid Markdown text. Use ## for sections. Do NOT output a main # title.
 5. Include highly converting formatting: "Pros & Cons" bullet points, a "Pricing Breakdown" section, and a clear "Final Verdict".
 6. Write in a persuasive, authoritative, yet conversational tone in English.
-\"\"\"
+"""
     try:
         client = genai.Client(api_key=API_KEY)
         response = client.models.generate_content(
