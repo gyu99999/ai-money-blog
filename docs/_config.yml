@@ -1,0 +1,5 @@
+title: AI Tech & Finance Insights
+description: Latest reviews, tutorials, and trends in AI and Business.
+theme: minima
+plugins:
+  - jekyll-sitemap
