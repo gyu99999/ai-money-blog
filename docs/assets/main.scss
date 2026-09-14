@@ -1,0 +1,83 @@
+---
+---
+@import "minima";
+
+/* Modern UI Overrides */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #f4f6f8;
+    color: #334155;
+}
+
+.site-header {
+    border-top: 5px solid #3b82f6;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.site-title {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #0f172a !important;
+    letter-spacing: -0.5px;
+}
+
+/* Post Cards */
+.post-list {
+    list-style: none;
+    padding: 0;
+    margin-left: 0;
+}
+
+.post-list > li {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+    border: 1px solid #f1f5f9;
+}
+
+.post-list > li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border-color: #e2e8f0;
+}
+
+.post-meta {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.post-link {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1e293b;
+    text-decoration: none;
+    line-height: 1.3;
+    display: block;
+}
+
+.post-link:hover {
+    color: #3b82f6;
+    text-decoration: none;
+}
+
+/* Hide RSS Link */
+.feed-subscribe {
+    display: none !important;
+}
+
+/* Footer styling */
+.site-footer {
+    background-color: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    padding: 3rem 0;
+    margin-top: 4rem;
+}
