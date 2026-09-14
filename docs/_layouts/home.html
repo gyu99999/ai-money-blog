@@ -2,21 +2,55 @@
 layout: default
 ---
 <div class="home">
-  {{ content }}
-  {%- if site.posts.size > 0 -%}
-    <h2 class="post-list-heading" style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1.5rem; color: #0f172a; margin-top: 2rem;">Latest Articles</h2>
-    <ul class="post-list">
-      {%- for post in site.posts -%}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%B %-d, %Y" }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        <p style="color: #475569; margin-top: 0.75rem; font-size: 1rem; line-height: 1.5;">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
-      </li>
-      {%- endfor -%}
-    </ul>
-  {%- endif -%}
+
+  <!-- BloggerPassion Style Hero -->
+  <div class="bp-hero">
+    <h1 class="bp-hero-title">Master the AI Revolution & Build Passive Income</h1>
+    <p class="bp-hero-subtitle">Join thousands of smart marketers discovering the best AI tools, proven SEO strategies, and high-paying affiliate tactics.</p>
+    <a href="#latest-posts" class="bp-btn">Start Reading Now &rarr;</a>
+  </div>
+
+  <div class="bp-main-container">
+    
+    <!-- Main Content: Post Grid -->
+    <div class="bp-content-area" id="latest-posts">
+      <h2 class="bp-section-title">Latest Reviews & Tutorials</h2>
+      <div class="bp-post-grid">
+        {%- if site.posts.size > 0 -%}
+          {%- for post in site.posts -%}
+          <article class="bp-post-card">
+            <div class="bp-post-meta">{{ post.date | date: "%B %-d, %Y" }}</div>
+            <h3 class="bp-post-title">
+              <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+            </h3>
+            <p class="bp-post-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+            <a href="{{ post.url | relative_url }}" class="bp-read-more">Read More &raquo;</a>
+          </article>
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <aside class="bp-sidebar">
+      <div class="bp-widget">
+        <h3 class="bp-widget-title">About Us</h3>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #475569; margin-bottom: 1rem;">
+          Welcome to <strong>AI Tech & Finance Insights</strong>. We cut through the noise to bring you honest reviews, in-depth comparisons, and ROI-focused analysis on the best AI software in the market.
+        </p>
+        <a href="{{ "/about/" | relative_url }}" class="bp-read-more">Read our full story &rarr;</a>
+      </div>
+      
+      <div class="bp-widget">
+        <h3 class="bp-widget-title">Top AI Tools</h3>
+        <ul style="list-style-type: none; padding: 0; font-size: 0.95rem; line-height: 2;">
+          <li>✅ <a href="#" style="color: #0f172a; text-decoration: none;">Best AI Writers</a></li>
+          <li>✅ <a href="#" style="color: #0f172a; text-decoration: none;">AI Video Generators</a></li>
+          <li>✅ <a href="#" style="color: #0f172a; text-decoration: none;">SEO Automation Tools</a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+
 </div>
