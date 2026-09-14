@@ -1,0 +1,18 @@
+backend:
+  name: github
+  repo: gyu99999/ai-money-blog
+  branch: main
+media_folder: "docs/assets/images"
+public_folder: "/ai-money-blog/assets/images"
+collections:
+  - name: "posts"
+    label: "블로그 기사 (Posts)"
+    folder: "docs/_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "레이아웃", name: "layout", widget: "hidden", default: "post"}
+      - {label: "제목", name: "title", widget: "string"}
+      - {label: "날짜", name: "date", widget: "datetime"}
+      - {label: "카테고리", name: "categories", widget: "hidden", default: "ai"}
+      - {label: "본문 내용", name: "body", widget: "markdown"}
