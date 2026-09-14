@@ -2,17 +2,9 @@
 layout: default
 ---
 <div class="home">
-
-  <!-- HERO SECTION -->
-  <div style="text-align: center; padding: 4rem 1.5rem; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; border-radius: 24px; margin-bottom: 3.5rem; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);">
-    <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -1px; color: #ffffff;">AI Tech & Finance Insights</h1>
-    <p style="font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; line-height: 1.6;">Master the AI Revolution. Discover high-ROI tools, honest reviews, and scale your online income.</p>
-  </div>
-
   {{ content }}
-
   {%- if site.posts.size > 0 -%}
-    <h2 class="post-list-heading" style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1.5rem; color: #0f172a;">Latest Articles</h2>
+    <h2 class="post-list-heading" style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1.5rem; color: #0f172a; margin-top: 2rem;">Latest Articles</h2>
     <ul class="post-list">
       {%- for post in site.posts -%}
       <li>
