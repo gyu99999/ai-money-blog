@@ -13,4 +13,4 @@ Whether you are looking to automate your workflow, build a micro-SaaS, or scale 
 
 Thank you for trusting us as your guide in the AI revolution.
 
-**Email:** contact@gyu99999.github.io
+**Email:** dreamanrvd@gmail.com
