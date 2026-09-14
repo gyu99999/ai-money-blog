@@ -17,18 +17,18 @@ def generate_seo_article(topic, affiliate_link):
         print("[ERROR] GEMINI_API_KEY is not set.")
         return None
 
-    prompt = f"""
-You are an expert tech and finance blogger. Write a highly engaging, SEO-optimized blog post in English about "{topic}".
-Use the following affiliate link strategically where appropriate: {affiliate_link}
+    prompt = f\"\"\"
+You are an elite affiliate marketing blogger who specializes in High-Intent, transactional SEO content. 
+Your goal is to write a highly persuasive blog post about "{topic}" that targets readers who are in the decision-making phase and ready to buy.
 
-Rules:
-1. Output ONLY valid Markdown text.
-2. Use ## for sections. Do NOT output a main # title (it will be added automatically).
-3. Include bullet points for pros/cons.
-4. Write in a professional yet conversational tone.
-5. Do not include any meta comments or greetings.
-6. Bold important keywords.
-"""
+CRITICAL RULES:
+1. Do NOT write generic, informational fluff (e.g., "What is AI?"). Focus entirely on buyer intent (Reviews, Pricing, Vs comparisons, ROI).
+2. Push the reader towards making a purchasing decision by highlighting value and resolving doubts.
+3. Use the following affiliate link strategically and naturally as a strong Call-To-Action (CTA): {affiliate_link}
+4. Output ONLY valid Markdown text. Use ## for sections. Do NOT output a main # title.
+5. Include highly converting formatting: "Pros & Cons" bullet points, a "Pricing Breakdown" section, and a clear "Final Verdict".
+6. Write in a persuasive, authoritative, yet conversational tone in English.
+\"\"\"
     try:
         client = genai.Client(api_key=API_KEY)
         response = client.models.generate_content(
