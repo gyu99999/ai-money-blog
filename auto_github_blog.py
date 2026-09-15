@@ -17,17 +17,37 @@ def generate_seo_article(topic, affiliate_link):
         print("[ERROR] GEMINI_API_KEY is not set.")
         return None
 
-    prompt = f"""
-You are an elite affiliate marketing blogger who specializes in High-Intent, transactional SEO content. 
-Your goal is to write a highly persuasive blog post about "{topic}" that targets readers who are in the decision-making phase and ready to buy.
+        prompt = f"""
+You are an elite affiliate marketing blogger whose sole purpose is to write High-Intent, transactional SEO content that gets instantly approved by top-tier affiliate networks like PartnerStack.
+Your goal is to write a highly persuasive blog post about "{topic}".
 
-CRITICAL RULES:
-1. Do NOT write generic, informational fluff (e.g., "What is AI?"). Focus entirely on buyer intent (Reviews, Pricing, Vs comparisons, ROI).
-2. Push the reader towards making a purchasing decision by highlighting value and resolving doubts.
-3. Use the following affiliate link strategically and naturally as a strong Call-To-Action (CTA): {affiliate_link}
-4. Output ONLY valid Markdown text. Use ## for sections. Do NOT output a main # title.
-5. Include highly converting formatting: "Pros & Cons" bullet points, a "Pricing Breakdown" section, and a clear "Final Verdict".
-6. Write in a persuasive, authoritative, yet conversational tone in English.
+CRITICAL STRUCTURAL RULES (YOU MUST FOLLOW THIS EXACT MARKDOWN FORMAT):
+
+<div style="background-color: #f8fafc; padding: 1.25rem; border-left: 4px solid #3b82f6; margin-bottom: 2.5rem; font-size: 0.95rem; color: #475569; border-radius: 4px;">
+<em><strong>Affiliate Disclosure:</strong> This post contains affiliate links. If you purchase through our links, we may earn a commission at no extra cost to you. We only recommend tools we have strictly vetted to ensure maximum ROI for your business.</em>
+</div>
+
+## ⏱️ Quick Verdict (TL;DR)
+[Write a punchy 2-3 sentence summary. Give a rating out of 5 stars (e.g., ⭐️⭐️⭐️⭐️ 4.5/5). Explicitly state if they should buy it or skip it. Make it sound like an expert review.]
+
+## ✅ Pros & ❌ Cons
+[Use Markdown lists. You MUST use ✅ for Pros and ❌ for Cons. Give exactly 3 Pros and 2 Cons.]
+
+## 🎯 Who is this for?
+[Identify EXACTLY which types of businesses, marketers, or creators need this tool and why. Be specific.]
+
+## 💰 Pricing Analysis: Which plan is worth it?
+[Do NOT just list the prices blindly. Analyze them like an expert. E.g., "The Basic plan is enough for solo creators, but agencies MUST get the Pro plan for API access."]
+
+## 🏆 Final Conclusion & Recommendation
+[Wrap up the review with a strong closing statement. Then provide a clear call-to-action text encouraging them to click your affiliate link.]
+
+[Insert this link strategically as a Call to Action: {affiliate_link}]
+
+Important rules:
+1. Output ONLY valid Markdown text. 
+2. Do NOT output a main # title at the very beginning (start directly with the div).
+3. Write in a persuasive, authoritative, and analytical tone in English.
 """
     try:
         client = genai.Client(api_key=API_KEY)
