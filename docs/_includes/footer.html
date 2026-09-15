@@ -4,38 +4,3 @@
     <div><a href="{{ "/about/" | relative_url }}" style="color: #64748b; text-decoration: none;">About</a></div>
   </div>
 </footer>
-
-<!-- Google Translate Magic Toggle -->
-<div id="google_translate_element" style="display:none;"></div>
-<script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ko,en', autoDisplay: false}, 'google_translate_element');
-  }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<script>
-function toggleTranslate() {
-    var host = window.location.hostname;
-    var cookiePattern = new RegExp("(^|;) ?googtrans=([^;]*)(;|$)");
-    var match = document.cookie.match(cookiePattern);
-    
-    if (match && match[2] === '/en/ko') {
-        // Switch to English
-        document.cookie = "googtrans=/en/en; path=/; domain=" + host;
-        document.cookie = "googtrans=/en/en; path=/;";
-        window.location.reload();
-    } else {
-        // Switch to Korean
-        document.cookie = "googtrans=/en/ko; path=/; domain=" + host;
-        document.cookie = "googtrans=/en/ko; path=/;";
-        window.location.reload();
-    }
-}
-// Hide the ugly Google Translate top banner
-document.write('<style>body { top: 0 !important; } .skiptranslate { display: none !important; }</style>');
-</script>
-
-<!-- Floating Toggle Button -->
-<button onclick="toggleTranslate()" style="position: fixed; bottom: 30px; right: 30px; z-index: 9999; background: #0f172a; color: white; border: none; padding: 12px 24px; border-radius: 50px; font-weight: 800; font-size: 1rem; cursor: pointer; box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.4); border: 2px solid #ffffff; transition: transform 0.2s;">
-  🌐 한글/EN
-</button>
