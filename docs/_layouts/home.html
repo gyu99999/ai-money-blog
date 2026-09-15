@@ -15,17 +15,12 @@ layout: default
       {%- for post in site.posts -%}
       {% assign mod = forloop.index | modulo: 4 %}
       <article class="fancy-card">
-        <!-- 0 Bytes Image Loading (CSS Gradient Thumbnails) -->
-        <div class="fancy-thumb bg-grad-{{ mod }}">
-          ✨
-        </div>
-        
         <div class="fancy-content">
             <div class="fancy-meta">{{ post.date | date: "%B %-d, %Y" }}</div>
             <h3 class="fancy-title">
               <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
             </h3>
-            <p class="fancy-excerpt">{{ post.excerpt | strip_html | truncatewords: 16 }}</p>
+            <p class="fancy-excerpt">{{ post.excerpt | strip_html | truncatewords: 35 }}</p>
         </div>
       </article>
       {%- endfor -%}
