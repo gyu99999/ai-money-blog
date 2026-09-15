@@ -2,21 +2,57 @@
 layout: default
 ---
 <div class="home">
-  {{ content }}
-  {%- if site.posts.size > 0 -%}
-    <h2 class="post-list-heading" style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1.5rem; color: #0f172a; margin-top: 2rem;">Latest Articles</h2>
-    <ul class="post-list">
-      {%- for post in site.posts -%}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%B %-d, %Y" }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        <p style="color: #475569; margin-top: 0.75rem; font-size: 1rem; line-height: 1.5;">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
-      </li>
-      {%- endfor -%}
-    </ul>
-  {%- endif -%}
+  <!-- Top Intro -->
+  <div style="background: white; padding: 3rem; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 3rem; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+    <h1 style="font-weight: 800; color: #0f172a; margin-bottom: 1rem; font-size: 2.2rem;">Grow Your Business with AI</h1>
+    <p style="font-size: 1.1rem; color: #475569; max-width: 700px; line-height: 1.6; margin: 0;">We test, review, and compare the most powerful AI software so you can make confident decisions, automate your workflow, and maximize ROI.</p>
+  </div>
+
+  <div class="bp-main-container">
+    <!-- Posts Grid -->
+    <div class="bp-content-area">
+      <h2 class="bp-section-title">Latest Reviews</h2>
+      <div class="bp-post-grid">
+        {%- if site.posts.size > 0 -%}
+          {%- for post in site.posts -%}
+          <article class="bp-post-card">
+            {% if post.image %}
+            <div style="height: 200px; background-image: url('{{ post.image }}'); background-size: cover; background-position: center;"></div>
+            {% else %}
+            <div style="height: 200px; background: linear-gradient(135deg, #cbd5e1, #94a3b8);"></div>
+            {% endif %}
+            
+            <div class="bp-card-content">
+                <div class="bp-post-meta">Review</div>
+                <h3 class="bp-post-title">
+                  <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+                </h3>
+                <p class="bp-post-excerpt">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
+                <a href="{{ post.url | relative_url }}" style="font-weight: 700; color: #0f172a; text-decoration: none; border-bottom: 2px solid #ef4444; display: inline-block; width: fit-content; padding-bottom: 2px;">Read Full Review</a>
+            </div>
+          </article>
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="bp-sidebar">
+      <div class="bp-widget" style="text-align: center;">
+        <img src="https://ui-avatars.com/api/?name=Gyu&background=0f172a&color=fff&size=150" alt="Editor" style="border-radius: 50%; margin-bottom: 1rem;">
+        <h3 style="font-weight: 800; font-size: 1.25rem; margin-bottom: 0.5rem; color: #0f172a;">Hi, I'm Gyu!</h3>
+        <p style="font-size: 0.95rem; color: #475569; line-height: 1.6; margin-bottom: 1.5rem;">I help marketers and founders find the best AI tools to scale their business.</p>
+        <a href="{{ "/about/" | relative_url }}" style="display: block; background: #0f172a; color: white; padding: 0.75rem; border-radius: 8px; font-weight: 700; text-decoration: none;">Read My Story</a>
+      </div>
+      
+      <div class="bp-widget">
+        <h3 class="bp-widget-title">Categories</h3>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 1rem;">
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: #475569; text-decoration: none; display: flex; justify-content: space-between;"><span>✏️ AI Copywriting</span> <span>&rarr;</span></a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: #475569; text-decoration: none; display: flex; justify-content: space-between;"><span>🎥 AI Video</span> <span>&rarr;</span></a></li>
+          <li style="margin-bottom: 1rem;"><a href="#" style="color: #475569; text-decoration: none; display: flex; justify-content: space-between;"><span>📈 SEO Tools</span> <span>&rarr;</span></a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
 </div>
