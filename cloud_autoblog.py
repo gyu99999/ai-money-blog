@@ -17,7 +17,7 @@ TOPICS = [
 
 def main():
     print("Starting Daily AI Autoblog (High-Intent SEO Version)...")
-    chosen_topic = random.choice(TOPICS)
+    chosen_topic = "PartnerStack Test: Is Jasper AI Still Worth It in 2026?"
     subprocess.run(["python", "auto_github_blog.py", "--topic", chosen_topic, "--link", AFFILIATE_LINK])
     print("Done!")
 
