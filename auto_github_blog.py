@@ -17,7 +17,7 @@ def generate_seo_article(topic, affiliate_link):
         print("[ERROR] GEMINI_API_KEY is not set.")
         return None
 
-        prompt = f"""
+    prompt = f"""
 You are an elite affiliate marketing blogger whose sole purpose is to write High-Intent, transactional SEO content that gets instantly approved by top-tier affiliate networks like PartnerStack.
 Your goal is to write a highly persuasive blog post about "{topic}".
 
